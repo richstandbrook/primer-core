@@ -23,7 +23,7 @@ class PrimerLoader implements LoaderInterface
      *
      * @throws \Twig\Error\LoaderError When $name is not found
      */
-    public function getSourceContext($name)
+    public function getSourceContext(string $name): \Twig\Source
     {
         return new \Twig\Source($this->templateProvider->getPatternTemplate($name), $name);
     }
