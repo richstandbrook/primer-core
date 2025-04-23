@@ -37,7 +37,7 @@ class PrimerLoader implements LoaderInterface
      *
      * @throws \Twig\Error\LoaderError When $name is not found
      */
-    public function getCacheKey($name)
+    public function getCacheKey(string $name): string
     {
         return md5($name);
     }
@@ -52,7 +52,7 @@ class PrimerLoader implements LoaderInterface
      *
      * @throws \Twig\Error\LoaderError When $name is not found
      */
-    public function isFresh($name, $time)
+    public function isFresh(string $name, int $time): bool
     {
         return $time < $this->templateProvider->getPatternTemplateLastModified($name);
     }
@@ -64,7 +64,7 @@ class PrimerLoader implements LoaderInterface
      *
      * @return bool    If the template source code is handled by this loader or not
      */
-    public function exists($name)
+    public function exists(string $name)
     {
         return $this->templateProvider->patternExists($name);
     }
